@@ -17,7 +17,7 @@ enum ProgramError {
     Menu(#[from] MenuError),
 
     #[error("menu error")]
-    Math(#[from] MathError)
+    Math(#[from] MathError),
 }
 
 #[derive(Debug, Error)]

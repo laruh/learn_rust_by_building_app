@@ -21,30 +21,29 @@ trait Color {}
 #[derive(Debug)]
 struct Vehicle<B: Body, C: Color> {
     body: B,
-    color: C
+    color: C,
 }
 
-impl <B: Body, C: Color> Vehicle<B, C> {
+impl<B: Body, C: Color> Vehicle<B, C> {
     fn new(body: B, color: C) -> Self {
-        Self{body, color}
+        Self { body, color }
     }
 }
 
 #[derive(Debug)]
-struct Car{}
+struct Car {}
 impl Body for Car {}
 
 #[derive(Debug)]
-struct Truck{}
+struct Truck {}
 impl Body for Truck {}
 
 #[derive(Debug)]
-struct Red{}
+struct Red {}
 impl Color for Red {}
 
-
 #[derive(Debug)]
-struct Blue{}
+struct Blue {}
 impl Color for Blue {}
 
 fn main() {

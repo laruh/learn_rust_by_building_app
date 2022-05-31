@@ -10,7 +10,7 @@
 enum Ticket {
     Backstage(f64, String),
     Vip(f64, String),
-    Standard(f64)
+    Standard(f64),
 }
 
 fn main() {
@@ -18,18 +18,18 @@ fn main() {
     let tickets = vec![
         Ticket::Backstage(100.0, "Sam".to_owned()),
         Ticket::Vip(90.0, "Alex".to_owned()),
-        Ticket::Standard(50.5)
+        Ticket::Standard(50.5),
     ];
     for ticket in tickets {
         // * Use a match expression while iterating the vector to print the ticket info
         match ticket {
             Ticket::Backstage(price, holder) => {
                 println!("Backstage ticket holder {:?}, price {:?}", holder, price)
-            },
+            }
             Ticket::Vip(price, holder) => {
                 println!("Vip ticket holder {:?}, price {:?}", holder, price)
-            },
-            Ticket::Standard(price) => println!("Standard ticket price {:?}", price)
+            }
+            Ticket::Standard(price) => println!("Standard ticket price {:?}", price),
         }
     }
 }

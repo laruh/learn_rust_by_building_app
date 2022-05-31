@@ -36,19 +36,19 @@ use std::io;
 #[derive(Debug, Clone)]
 pub struct Bill {
     name: String,
-    amount: f64
+    amount: f64,
 }
 
 /// Collection used to store bills.
 pub struct Bills {
-    inner: HashMap<String, Bill>
+    inner: HashMap<String, Bill>,
 }
 
 impl Bills {
     /// Create a new bills collection.
     fn new() -> Self {
         Self {
-            inner: HashMap::new()
+            inner: HashMap::new(),
         }
     }
 
@@ -79,8 +79,11 @@ impl Bills {
         // We use the get_mut() function defined on the HashMap type
         // in order to change items present within the hashmap.
         match self.inner.get_mut(name) {
-            Some(bill) => {bill.amount = amount; true},
-            None => false
+            Some(bill) => {
+                bill.amount = amount;
+                true
+            }
+            None => false,
         }
     }
 }
@@ -95,7 +98,9 @@ fn get_input() -> Option<String> {
     let input = buffer.trim().to_owned();
     if input.is_empty() {
         None
-    } else { Some(input) }
+    } else {
+        Some(input)
+    }
 }
 
 /// Retrieves a bill amount. None is returned if the user did not make any entry,
@@ -105,21 +110,21 @@ fn get_bill_amount() -> Option<f64> {
     loop {
         let input = match get_input() {
             Some(input) => input,
-            None => return None
+            None => return None,
         };
         if input.is_empty() {
-            return None
+            return None;
         }
         let parsed_input: Result<f64, _> = input.parse();
         match parsed_input {
             Ok(amount) => return Some(amount),
-            Err(_) => println!("Please enter a number")
+            Err(_) => println!("Please enter a number"),
         }
     }
 }
 
 mod menu {
-    use crate::{Bill, Bills, get_bill_amount, get_input};
+    use crate::{get_bill_amount, get_input, Bill, Bills};
 
     /// Process for adding a new bill. Includes accepting user input
     /// and aborting if the user does not enter any data.
@@ -127,13 +132,13 @@ mod menu {
         println!("Bill name:");
         let name = match get_input() {
             Some(name) => name,
-            None => return
+            None => return,
         };
         let amount = match get_bill_amount() {
             Some(amount) => amount,
-            None => return
+            None => return,
         };
-        let bill = Bill {name, amount};
+        let bill = Bill { name, amount };
         bills.add(bill);
         print!("Bill added");
     }
@@ -154,7 +159,7 @@ mod menu {
         println!("Enter bill name to remove:");
         let name = match get_input() {
             Some(name) => name,
-            None => return
+            None => return,
         };
         if bills.remove(&name) {
             println!("Bill removed")
@@ -172,12 +177,12 @@ mod menu {
         println!("Enter bill name to update:");
         let name = match get_input() {
             Some(name) => name,
-            None => return
+            None => return,
         };
         println!("Enter amount:");
         let amount = match get_bill_amount() {
             Some(amount) => amount,
-            None => return
+            None => return,
         };
         if bills.update(&name, amount) {
             println!("Bill updated")
@@ -232,11 +237,11 @@ fn run_program() -> Option<()> {
         MainMenu::show();
         let input = get_input()?;
         match MainMenu::from_str(&input) {
-            Some(MainMenu::Add) =>  menu::add_bill(&mut bills),
-            Some(MainMenu::View) =>  menu::view_bills(&bills),
-            Some(MainMenu::Remove) =>  menu::remove_bill(&mut bills),
-            Some(MainMenu::Update) =>  menu::update_bill(&mut bills),
-            None => break
+            Some(MainMenu::Add) => menu::add_bill(&mut bills),
+            Some(MainMenu::View) => menu::view_bills(&bills),
+            Some(MainMenu::Remove) => menu::remove_bill(&mut bills),
+            Some(MainMenu::Update) => menu::update_bill(&mut bills),
+            None => break,
         }
     }
     None

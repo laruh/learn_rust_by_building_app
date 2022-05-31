@@ -21,15 +21,12 @@
 struct LuggageId(usize);
 struct Luggage<State> {
     id: LuggageId,
-    state: State
+    state: State,
 }
 
 impl<State> Luggage<State> {
     fn next<NextState>(self, state: NextState) -> Luggage<NextState> {
-        Luggage {
-            id: self.id,
-            state
-        }
+        Luggage { id: self.id, state }
     }
 }
 
@@ -44,7 +41,7 @@ impl Luggage<BeginCustody> {
     fn new(id: LuggageId) -> Self {
         Luggage {
             id,
-            state: BeginCustody
+            state: BeginCustody,
         }
     }
 

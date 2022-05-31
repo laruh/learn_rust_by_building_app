@@ -64,7 +64,7 @@ fn print_title(title: Tile) {
         Water(pressure) if pressure.0 >= 10 => println!("High water pressure!"),
         Water(pressure) if pressure.0 < 10 => println!("Water pressure level: {:?}", pressure),
         Grass | Dirt | Sand => println!("Ground tile"),
-        Treasure(TreasureChest{amount, ..}) if amount >= 100 => println!("Lots of gold!"),
+        Treasure(TreasureChest { amount, .. }) if amount >= 100 => println!("Lots of gold!"),
         _ => println!("Average title"),
     }
 }
@@ -74,7 +74,7 @@ fn main() {
     let title_water = Tile::Water(Pressure(12));
     let title_treasure = Tile::Treasure(TreasureChest {
         content: TreasureItem::Gold,
-        amount: 114
+        amount: 114,
     });
     let title_sand = Tile::Sand;
     print_title(title_dungeon);

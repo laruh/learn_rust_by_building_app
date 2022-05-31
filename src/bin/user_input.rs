@@ -39,7 +39,7 @@ impl PowerState {
             "reboot" => Some(PowerState::Reboot),
             "shutdown" => Some(PowerState::Shutdown),
             "hibernate" => Some(PowerState::Hibernate),
-            _ => None
+            _ => None,
         }
     }
 }

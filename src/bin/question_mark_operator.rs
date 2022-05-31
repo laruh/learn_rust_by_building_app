@@ -27,7 +27,7 @@ enum Position {
 //   still employed
 struct Employee {
     em_type: Position,
-    employed: bool
+    employed: bool,
 }
 // * Use a function that returns a Result to determine if the employee
 //   may enter the building
@@ -37,9 +37,11 @@ fn try_determine(employee: &Employee) -> Result<(), String> {
             Position::MaintenanceCrews => Ok(()),
             Position::MarketingDepartment => Ok(()),
             Position::Manager => Ok(()),
-            _ => Err("Invalid position".to_owned())
+            _ => Err("Invalid position".to_owned()),
         }
-    } else { Err("Terminated".to_owned()) }
+    } else {
+        Err("Terminated".to_owned())
+    }
 }
 // * Print whether the employee may access the building
 //   * Must use a function that utilizes the question mark operator to do this
@@ -50,7 +52,10 @@ fn print_access(employee: &Employee) -> Result<(), String> {
 }
 
 fn main() {
-    let manager = Employee{em_type: Position::Manager, employed: false};
+    let manager = Employee {
+        em_type: Position::Manager,
+        employed: false,
+    };
 
     if let Err(e) = print_access(&manager) {
         println!("access denied {:?}", e)

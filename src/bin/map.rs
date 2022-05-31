@@ -10,7 +10,7 @@
 #[derive(Debug)]
 struct User {
     id: i32,
-    name: String
+    name: String,
 }
 
 /// Locates a user id based on the name.
@@ -19,18 +19,20 @@ fn find_user(name: &str) -> Option<i32> {
         "sam" => Some(1),
         "alex" => Some(5),
         "nikol" => Some(10),
-        _ => None
+        _ => None,
     }
 }
 
 fn main() {
     let user_name = "sam";
-    let user = find_user(user_name)
-        .map(|user_id| User {id: user_id, name: user_name.to_owned()});
+    let user = find_user(user_name).map(|user_id| User {
+        id: user_id,
+        name: user_name.to_owned(),
+    });
 
     // * Print out the User struct if found, or a "not found" message if not
     match user {
         Some(user) => println!("We have user {:?}", user),
-        None => println!("User not found")
+        None => println!("User not found"),
     }
 }

@@ -15,7 +15,7 @@
 use std::collections::HashMap;
 
 fn main() {
-    let mut  store = HashMap::new();
+    let mut store = HashMap::new();
     store.insert("Chairs", 5);
     store.insert("Beds", 3);
     store.insert("Tables", 2);
@@ -27,7 +27,7 @@ fn main() {
         total_stock += qty;
         match qty {
             0 => println!("{:?} out of stock", item),
-            _ => println!("number of {:?} is {:?}", item, qty)
+            _ => println!("number of {:?} is {:?}", item, qty),
         }
     }
     println!("total stock is {:?}", total_stock)

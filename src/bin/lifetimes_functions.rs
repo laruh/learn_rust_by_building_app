@@ -11,7 +11,9 @@
 fn longest<'a>(first: &'a str, second: &'a str) -> &'a str {
     if first > second {
         first
-    } else { second }
+    } else {
+        second
+    }
 }
 
 fn main() {

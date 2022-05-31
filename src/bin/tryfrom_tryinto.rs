@@ -22,9 +22,9 @@
 // * Utilize the `thiserror` crate for your error type
 // * Run `cargo test --bin tryfrom_tryinto` to test your implementation
 
-use thiserror::Error;
 use std::convert::TryFrom;
 use std::num::ParseIntError;
+use thiserror::Error;
 
 #[derive(Debug, Eq, PartialEq)]
 struct Rgb(u8, u8, u8);
@@ -37,7 +37,6 @@ enum RgbError {
     ParseError(#[from] ParseIntError),
     #[error("wrong number of hex digits")]
     ColorComponentError,
-
 }
 
 impl TryFrom<&str> for Rgb {
@@ -48,14 +47,14 @@ impl TryFrom<&str> for Rgb {
             return Err(RgbError::MissingHash);
         }
         if hex.len() != 7 {
-            return Err(RgbError::ColorComponentError)
+            return Err(RgbError::ColorComponentError);
         }
 
         let (r, g, b) = (
             u8::from_str_radix(&hex[1..=2], 16)?,
             u8::from_str_radix(&hex[3..=4], 16)?,
-            u8::from_str_radix(&hex[5..=6], 16)?
-            );
+            u8::from_str_radix(&hex[5..=6], 16)?,
+        );
         Ok(Self(r, g, b))
     }
 }

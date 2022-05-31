@@ -12,11 +12,11 @@
 const MOCK_DATA: &str = include_str!("mock-data.csv");
 
 struct Names<'a> {
-    inner: Vec<&'a str>
+    inner: Vec<&'a str>,
 }
 
 struct Titles<'a> {
-    inner: Vec<&'a str>
+    inner: Vec<&'a str>,
 }
 
 fn main() {

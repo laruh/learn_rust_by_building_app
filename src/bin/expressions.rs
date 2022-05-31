@@ -10,7 +10,7 @@ fn print_answer(rsl: bool) {
     //to print
     match rsl {
         true => println!("its big"),
-        false => println!("its small")
+        false => println!("its small"),
     }
 }
 

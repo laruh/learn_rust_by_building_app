@@ -10,17 +10,17 @@
 
 struct Student {
     name: String,
-    locker: Option<i32>
+    locker: Option<i32>,
 }
 
 fn main() {
-    let sam = Student{
+    let sam = Student {
         name: "Sam".to_owned(),
-        locker: Some(32)
+        locker: Some(32),
     };
     println!("student: {:?}", sam.name);
     match sam.locker {
         Some(num) => println!("student's locker {:?}", num),
-        None => println!("no locker assigned")
+        None => println!("no locker assigned"),
     }
 }

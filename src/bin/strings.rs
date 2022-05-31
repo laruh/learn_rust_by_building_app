@@ -8,12 +8,16 @@ struct Person {
     age: i32,
     // * The color and name should be stored as a String
     name: String,
-    favorite_color: String
+    favorite_color: String,
 }
 
 impl Person {
-    fn new(age:i32, name: String, favorite_color: String) -> Self {
-        Self {age, name, favorite_color}
+    fn new(age: i32, name: String, favorite_color: String) -> Self {
+        Self {
+            age,
+            name,
+            favorite_color,
+        }
     }
 }
 
@@ -26,7 +30,7 @@ fn main() {
     let people = vec![
         Person::new(30, "Alex".to_owned(), "Red".to_owned()),
         Person::new(16, "Maria".to_owned(), "Blue".to_owned()),
-        Person::new(25, "Sam".to_owned(), "Green".to_owned())
+        Person::new(25, "Sam".to_owned(), "Green".to_owned()),
     ];
 
     // * Iterate through the vector using a for..in loop

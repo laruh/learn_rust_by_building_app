@@ -23,13 +23,13 @@ fn print_perimeter(thing: impl Perimeter) {
 }
 
 struct Square {
-    side: f64
+    side: f64,
 }
 
 struct Triangle {
     a: f64,
     b: f64,
-    c: f64
+    c: f64,
 }
 
 impl Triangle {
@@ -51,11 +51,11 @@ impl Perimeter for Triangle {
 }
 
 fn main() {
-    let square = Square{side: 5.};
-    let triangle = Triangle{
+    let square = Square { side: 5. };
+    let triangle = Triangle {
         a: 5.,
         b: 3.,
-        c: 4.
+        c: 4.,
     };
     print_perimeter(square);
     if triangle.check_existence() {

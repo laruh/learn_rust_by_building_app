@@ -30,7 +30,7 @@ fn main() {
     println!("(2 + 2 - 1) * 3 = {}", result);
 
     {
-        use activity::msg::{trim, capitalize, exciting};
+        use activity::msg::{capitalize, exciting, trim};
         // Part 2: string functions
         let hello = {
             let msg = "hello ";

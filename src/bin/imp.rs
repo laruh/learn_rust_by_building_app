@@ -8,7 +8,7 @@
 enum Color {
     Red,
     Green,
-    Yellow
+    Yellow,
 }
 
 impl Color {
@@ -16,7 +16,7 @@ impl Color {
         match self {
             Color::Red => println!("red"),
             Color::Green => println!("green"),
-            Color::Yellow => println!("yellow")
+            Color::Yellow => println!("yellow"),
         }
     }
 }
@@ -24,14 +24,14 @@ impl Color {
 struct Dimensions {
     width: f64,
     height: f64,
-    depth: f64
+    depth: f64,
 }
 
 // * Use a struct to encapsulate the box characteristics
 struct SippingBox {
     dimensions: Dimensions,
     weight: f64,
-    color: Color
+    color: Color,
 }
 
 impl Dimensions {
@@ -48,7 +48,7 @@ impl SippingBox {
         Self {
             dimensions,
             weight,
-            color
+            color,
         }
     }
 
@@ -61,7 +61,11 @@ impl SippingBox {
 }
 
 fn main() {
-    let dimensions = Dimensions { width: 1.0, height: 2.0, depth: 3.0 };
+    let dimensions = Dimensions {
+        width: 1.0,
+        height: 2.0,
+        depth: 3.0,
+    };
     let new_box = SippingBox::new(dimensions, 2.1, Color::Green);
     new_box.print();
 }

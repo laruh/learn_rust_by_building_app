@@ -11,7 +11,7 @@
 
 struct Item {
     id: i32,
-    quantity: i32
+    quantity: i32,
 }
 
 fn display_id(item: &Item) {
@@ -23,10 +23,7 @@ fn display_quantity(item: &Item) {
 }
 
 fn main() {
-    let item = Item {
-        id: 1,
-        quantity: 7
-    };
+    let item = Item { id: 1, quantity: 7 };
     display_id(&item);
     display_quantity(&item);
 }
